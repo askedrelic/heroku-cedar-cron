@@ -1,7 +1,7 @@
 #Heroku Cedar Cron
 I've been playing with Heroku and wanted to use the default `cron` addon to run a Python script and only email if that script printed anything to stdout; regular Unix style.
 
-This is my attempt that.
+This is my attempt at that.
 
 ##Usage
 The Heroku Cron addon runs `rake cron` once a day and that's about it. By using Ruby's backtick operator, you can run any command command capture the stdout. Then using the Sendgrid addon, you can optionally email that stdout.
