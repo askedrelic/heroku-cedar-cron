@@ -9,7 +9,10 @@ task :cron do
         message += "To: #{ENV['CRON_EMAIL']}\n"
         message += "Subject: Cron\n\n"
         message += task_output
-        Net::SMTP.start('smtp.sendgrid.net', 587, 'heroku.com', ENV['SENDGRID_USERNAME'], ENV['SENDGRID_PASSWORD'], :plain) do |smtp|
+        Net::SMTP.start('smtp.sendgrid.net', 587, 'heroku.com',
+                        ENV['SENDGRID_USERNAME'],
+                        ENV['SENDGRID_PASSWORD'],
+                        :plain) do |smtp|
               smtp.send_message message, ENV['SENDGRID_USERNAME'], [ENV['CRON_EMAIL']]
         end
     end
